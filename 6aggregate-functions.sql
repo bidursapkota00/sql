@@ -131,6 +131,21 @@ GROUP BY
     author_fname;
 
 SELECT
+    author_fname,
+    author_lname,
+    title,
+    SUM(stock_quantity) AS quantity
+FROM
+    books
+WHERE
+    stock_quantity < 100
+GROUP BY
+    author_fname,
+    author_lname
+HAVING
+    quantity > 50;
+
+SELECT
     SUM(pages)
 FROM
     books;

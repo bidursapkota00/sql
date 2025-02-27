@@ -3,6 +3,12 @@ CREATE TABLE contacts (
     phone VARCHAR(15) NOT NULL UNIQUE
 );
 
+CREATE TABLE companies (
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    CONSTRAINT name_address UNIQUE (name, address)
+);
+
 INSERT INTO
     contacts (name, phone)
 VALUES
@@ -34,12 +40,6 @@ CREATE TABLE palindromes2 (
     CONSTRAINT word_is_palindrome CHECK(REVERSE(word) = word)
 );
 
-CREATE TABLE companies (
-    name VARCHAR(255) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    CONSTRAINT name_address UNIQUE (name, address)
-);
-
 CREATE TABLE houses (
     purchase_price INT NOT NULL,
     sale_price INT NOT NULL,
@@ -62,7 +62,7 @@ ALTER TABLE
 -- Option 1
 RENAME TABLE companies to suppliers;
 
--- Option 2 [i prefer this]
+-- Option 2 [I prefer this]
 ALTER TABLE
     suppliers RENAME TO companies;
 
