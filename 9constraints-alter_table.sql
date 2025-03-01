@@ -1,3 +1,5 @@
+-- Check constraint is not supported in MaiaDB version less than 10.2
+-- Rename Column name is not supported in MariaDB; Use Change instead
 CREATE TABLE contacts (
     name VARCHAR(100) NOT NULL,
     phone VARCHAR(15) NOT NULL UNIQUE
